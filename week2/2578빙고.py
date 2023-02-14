@@ -2,9 +2,6 @@ nums = [list(map(int, input().split())) for _ in range(5)]
 call = [list(map(int, input().split())) for _ in range(5)]
 call = sum(call,[])
 
-# print(*nums, sep="\n")
-# print(call)
-
 idx = 0    
 while idx < 25:
     for i in range(5):
