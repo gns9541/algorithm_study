@@ -21,19 +21,19 @@ while idx < 25:
         if lst.count(0) == 5:
             cnt_sero += 1
     
-    # 대각선 0일때
-    dagak = []
-    dagak_rev = []
+    # 대각선 다 0일때
+    sums = []
+    sums_rev = []
     cnt_dagak = 0
     for i in range(5):
         for j in range(5):
             if i==j:
-                dagak.append(nums[i][j])
+                sums.append(nums[i][j])
             elif i+j == 4:
-                dagak_rev.append(nums[i][j])
-    if sum(dagak) == 0:
+                sums_rev.append(nums[i][j])
+    if sum(sums) == 0:
         cnt_dagak += 1
-    if sum(dagak_rev) == 0:
+    if sum(sums_rev) == 0:
         cnt_dagak += 1
     
     if (cnt_garo+cnt_sero+cnt_dagak>=3) or (cnt_garo+cnt_sero>=3) or (cnt_sero+cnt_dagak>=3) or (cnt_garo+cnt_dagak>=3) or (cnt_garo >=3) or (cnt_sero >=3):
