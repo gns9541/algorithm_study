@@ -3,16 +3,15 @@ wall = [list(map(int, input().split())) for _ in range(N)]
 w1 = sorted(wall, key = lambda x : x[0]) # 가로길이 오름순 배열
 w2 = sorted(wall, key = lambda x : x[1]) # 세로길이 오름순 배열
 
-J = w1[-1][0] # 15
+J = w1[-1][0] # 15     # 가로 가장 큰 위치, 세로 가장 큰 위치 찾아서 배열 만들기
 I = w2[-1][1] # 10
 lst = [[0]*(J+1) for _ in range(I+1)]
-# print(*lst, sep = '\n')
-for p in wall:                           # 기둥이 세워져있는 곳에 1 추가해주기
+
+for p in wall:                           # 배열 중 기둥이 세워져있는 곳에 1 추가해주기
     for j in range(J+1):
         if p[0] == j:
             for i in range(p[1]):       
                 lst[i][j] = 1
-print(*lst, sep = '\n')
 '''
 [0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1]  # 이렇게
 [0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1]
@@ -40,7 +39,7 @@ for i in range(I+1):
             cnt = 0                           # 카운트 다시 리셋
 box = 0
 for i in wall:
-    box += i[1]                # 기둥까지 넓이까지 더해주기
+    box += i[1]                # 기둥 넓이까지 더해주기
 
 print(sum(cnt_lst)+box)
 
