@@ -1,10 +1,9 @@
 N = int(input())
 wall = [list(map(int, input().split())) for _ in range(N)]
-w1 = max(wall, key = lambda x : x[0]) # 가로길이 최대
-w2 = max(wall, key = lambda x : x[1]) # 세로길이 최대
+J = max(wall, key = lambda x : x[0])[0] # 가로길이 최대
+I = max(wall, key = lambda x : x[1])[1] # 세로길이 최대
+# 가로 가장 큰 위치, 세로 가장 큰 위치 찾아서 배열 만들기
 
-J = w1[0] # 15     # 가로 가장 큰 위치, 세로 가장 큰 위치 찾아서 배열 만들기
-I = w2[1] # 10
 lst = [[0]*(J+1) for _ in range(I+1)]
 
 for p in wall:                           # 배열 중 기둥이 세워져있는 곳에 1 추가해주기
