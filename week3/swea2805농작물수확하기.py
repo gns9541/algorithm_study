@@ -3,8 +3,6 @@ for test_case in range(1, T+1):
     N = int(input())
     farm = [list(map(int, input())) for _ in range(N)]
 
-    print(farm)
-    
     add = 0
     for i in range(N):
         if i < N//2:
