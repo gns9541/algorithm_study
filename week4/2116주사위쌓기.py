@@ -14,7 +14,9 @@ for _ in range(N):
     d3.append(dice[4])
     df = [d1,d2,d3]
     all_dice.append(df)
-# print(*all_dice, sep="\n")           
+print()
+print("1. 주사위의 마주보는 면끼리 묶어서 리스트")
+print(*all_dice, sep="\n")           
 
 # 주사위를 쌓을 수 있는 모든 경우의 수
 stack = []
@@ -56,9 +58,12 @@ for j in range(3): # 첫번째 주사위는 어떤 방향으로든 둘 수 있�
     # 6가지 경우 한곳에
     stack.append(stack1) 
     stack.append(stack2)
-    
-# print(*stack,sep="\n")
+print()  
+print("2. 주사위를 쌓을 수 있는 모든 경우의 수") 
+print(*stack,sep="\n")
 # 쌓아진 주사위의 위 아래 면을 제외한 부분에서 가장 큰값들 끼리 모두 더해
+print()
+print("3. 쌓여있는 각각의 주사위의 옆면 중 가장 큰 값")
 ans = 0
 for lst in stack:
     sum = 0
@@ -66,10 +71,11 @@ for lst in stack:
         num = [1,2,3,4,5,6]
         num.remove(lst[i])
         num.remove(lst[i+1])
-        # print(num)
+        print(max(num), end=" ")
         sum += (max(num))
+    print()
     if ans <= sum: # 그 중 가장 큰 값이 정답
         ans = sum
-        
+
 print(ans)
     
