@@ -9,13 +9,13 @@ def dfs(p, R):
             cnt += lst.count(0)
         if ans >= cnt:
             ans = cnt
-        # print(*R, sep="\n")
-        # print(cnt)
-        # print()
+        print(*R, sep="\n")
+        print(cnt)
+        print()
         return
     i, j, type = cctv[p] # == (2,2,1)
     for k in cctv_watch[type]:
-        for l in k: # ex (cctv_watch[type] = [[0],[1],[2],[3]])
+        for l in k: # ex (cctv_watch[type] = [[0],[1],[2],[3]]]
             cctv_see(i,j,l,first)
         dfs(p+1,first)
         first = copy.deepcopy(R)
@@ -27,9 +27,18 @@ R = [list(map(int, input().split())) for _ in range(N)]
 di = [-1,1,0,0] # 상 하 좌 우
 dj = [0,0,-1,1]
 
-# cctv 번호 별로 볼 수 있는 방향 # 0, 1, 2, 3, 4 
+# cctv 번호 별로 볼 수 있는 방향을 방향벡터의 인덱스로 저장 # 0, 1, 2, 3, 4 
 cctv_watch = [[], [[0],[1],[2],[3]], [[0,1],[2,3]], [[0,3],[3,1],[1,2],[2,0]], 
         [[2,0,3],[0,3,1],[3,1,2],[1,2,0]], [[0,1,2,3]]]
+
+cctv = [] 
+num = 0
+for i in range(N):
+    for j in range(M):
+        if 1 <= R[i][j] <= 5:
+            cctv.append((i,j,(R[i][j])))  
+            num += 1 # ex)(2,2,1) 여기서 1 -> 위에 cctv_watch에서 해당하는 번호의 cctv가 볼 수 있는 방향 탐지하기 위해
+# print(cctv)
 
 # cctv 보는 곳 찾는 함수
 def cctv_see(i,j,k,first):
@@ -59,14 +68,7 @@ def re(i,j,k):
 -> decopy 사용해서 초기화 시켜주기
 '''
 
-cctv = [] 
-num = 0
-for i in range(N):
-    for j in range(M):
-        if 1 <= R[i][j] <= 5:
-            cctv.append((i,j,(R[i][j])))  
-            num += 1 # ex)(2,2,1) 여기서 1 -> 위에 cctv_watch에서 해당하는 번호의 cctv가 볼 수 있는 방향 탐지하기 위해
-# print(cctv)
+
 ans = N*M
 dfs(0,R)
 print(ans)
