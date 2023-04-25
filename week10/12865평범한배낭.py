@@ -6,14 +6,15 @@ for i in range(1,N+1):      # i: 물건 종류
     for j in range(1,K+1):  # j: 현재 물건을 담을 수 있는 정도 
         w,v = lst[i]        # w: 물건의 무게, v: 물건의 가치
         if j >= w:          # 물건의 무게가 현재 가방이 담을 수 있는 무게보다 작으면
-            dp[i][j] = max(dp[i-1][j] , dp[i-1][j-w] + v)
+            dp[i][j] = max(dp[i-1][j] , dp[i-1][j-w] + v) # 바로 위가치  아님 
+            #바로 위에서 현재 넣을 수 있는 무게 만큼 뺀 부분에 현재 물건 넣읐을때 가치
         else:
             dp[i][j] = dp[i-1][j]
         # print(i,j)
-        print(*dp,sep="\n")
-        print()
+        # print(*dp,sep="\n")
+        # print()
 print(dp[i][K])
-print(*dp,sep="\n")
+# print(*dp,sep="\n")
 
 
 '''
